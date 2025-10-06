@@ -1,0 +1,12 @@
+[project]
+name = "smooth-operators"
+version = "0.1.0"
+description = "A package of custom Apache Airflow operators"
+readme = "README.md"
+requires-python = ">=3.12.2"
+dependencies = [
+    "apache-airflow-providers-cncf-kubernetes>=10.8.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
