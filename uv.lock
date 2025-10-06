@@ -133,6 +133,7 @@ dependencies = [
     { name = "apache-airflow" },
     { name = "apache-airflow-providers-cncf-kubernetes" },
     { name = "apache-airflow-providers-standard" },
+    { name = "printing-press" },
     { name = "smooth-operators" },
 ]
 
@@ -146,6 +147,7 @@ requires-dist = [
     { name = "apache-airflow", specifier = ">=3.1.0" },
     { name = "apache-airflow-providers-cncf-kubernetes", specifier = ">=10.8.2" },
     { name = "apache-airflow-providers-standard", specifier = ">=1.9.0" },
+    { name = "printing-press", virtual = "packages/printing-press" },
     { name = "smooth-operators", virtual = "packages/smooth-operators" },
 ]
 
