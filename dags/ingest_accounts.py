@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.sdk import Asset
 from pendulum import datetime
+from smooth_operators import IngestPostgresOperator
 
 SOURCE_DATASET = Asset("postgres://source_db/accounts")
 TARGET_DATASET = Asset("s3://raw-bucket/accounts.parquet")

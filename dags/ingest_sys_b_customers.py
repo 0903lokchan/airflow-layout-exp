@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.sdk import Asset
 from pendulum import datetime
+from smooth_operators import IngestS3Operator
 
 SOURCE_DATASET = Asset("s3://source_s3/customers.csv")
 TARGET_DATASET = Asset("s3://raw-bucket/sys-b-customers-{{ ds }}.csv")
