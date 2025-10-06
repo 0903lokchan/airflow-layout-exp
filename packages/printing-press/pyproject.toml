@@ -1,0 +1,13 @@
+[project]
+name = "printing_press"
+version = "0.1.0"
+description = "Dev tools for creating Airflow DAGs"
+readme = "README.md"
+requires-python = ">=3.12.2"
+dependencies = [
+    "typer[all]",
+    "jinja2"
+]
+
+[project.scripts]
+"printing-press" = "printing_press.main:app"

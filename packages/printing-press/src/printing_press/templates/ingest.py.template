@@ -1,0 +1,28 @@
+from airflow import DAG
+from airflow.sdk import Asset
+from pendulum import datetime
+from smooth_operators import IngestPostgresOperator
+
+SOURCE_DATASET = Asset("{{ source_asset }}")
+TARGET_DATASET = Asset("{{ target_asset }}")
+
+with DAG(
+    dag_id="{{ dag_id }}",
+    start_date=datetime({{ start_date }}),
+    schedule="{{ schedule }}",
+    catchup=False,
+) as dag:
+
+    def ingest():
+        print("Ingesting customers...")
+
+    ingest_task = IngestPostgresOperator(
+        task_id="ingest_task",
+        conn_id="{{ conn_id }}",
+        source_query="{{ source_query }}",
+        target_path=TARGET_DATASET,
+        target_format="{{ target_format }}",
+        outlets=[TARGET_DATASET],
+    )
+
+    ingest_task
