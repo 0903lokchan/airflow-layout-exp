@@ -4,4 +4,25 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "apache-airflow>=3.1.0",
+    "apache-airflow-providers-cncf-kubernetes>=10.8.2",
+    "apache-airflow-providers-standard>=1.9.0",
+    "smooth-operators",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[tool.uv.workspace]
+members = [
+    "packages/smooth-operators",
+]
+
+[tool.uv.sources]
+smooth-operators = { workspace = true }
+
+[tool.setuptools]
+py-modules = ["dags"]
